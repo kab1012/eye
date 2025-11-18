@@ -394,7 +394,7 @@ interface ModelTrainingProps {
 const ModelTraining = ({ selectedProject, onError, onSuccess, isLoading, setIsLoading }: ModelTrainingProps) => {
   const [trainingConfig, setTrainingConfig] = useState({
     dataset_path: '',
-    base_model: 'yoloe-11s-seg-pf.pt',
+    base_model: 'yolo11s.pt',
     epochs: 50,
     batch_size: 8,
     learning_rate: 0.001,
@@ -481,11 +481,10 @@ const ModelTraining = ({ selectedProject, onError, onSuccess, isLoading, setIsLo
               onChange={(e) => setTrainingConfig(prev => ({ ...prev, base_model: e.target.value }))}
               className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="yoloe-11s-seg-pf.pt">YOLOE 11S (Prompt-Free)</option>
+              <option value="yolo11s.pt">YOLO11 Small</option>
               <option value="yoloe-11m-seg.pt">YOLOE 11M</option>
               <option value="yoloe-11l-seg.pt">YOLOE 11L</option>
               <option value="yolo11n.pt">YOLO11 Nano</option>
-              <option value="yolo11s.pt">YOLO11 Small</option>
             </select>
           </div>
 

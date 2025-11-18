@@ -207,7 +207,7 @@ def test_annotation_system():
     print("\n10. Testing pre-labeling with YOLO-E...")
     try:
         prelabel_data = {
-            'model_name': 'yoloe-11s-seg-pf.pt',
+            'model_name': 'yolo11s.pt',
             'confidence_threshold': 0.5,
             'use_gpu': False
         }

@@ -12,7 +12,7 @@ export const InferencePage = () => {
   const [inferenceResults, setInferenceResults] = useState<any>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [processingStatus, setProcessingStatus] = useState<string>('');
-  const [selectedModel, setSelectedModel] = useState<string>('yoloe-11s-seg-pf.pt');
+  const [selectedModel, setSelectedModel] = useState<string>('yolo11s.pt');
   const [selectedClasses, setSelectedClasses] = useState<string[]>([]);
   const [promptMode, setPromptMode] = useState<string>('internal');
 

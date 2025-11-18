@@ -107,7 +107,7 @@ def test_training_pipeline():
         training_config = {
             "project_name": project_name,
             "dataset_path": "test_dataset",
-            "base_model": "yoloe-11s-seg-pf.pt",
+            "base_model": "yolo11s.pt",
             "epochs": 5,  # Small number for testing
             "batch_size": 2,
             "learning_rate": 0.001,

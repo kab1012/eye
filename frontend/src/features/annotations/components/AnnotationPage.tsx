@@ -477,7 +477,7 @@ export const AnnotationPage = ({ className = '' }: AnnotationPageProps) => {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
-          model_name: 'yoloe-11s-seg-pf.pt',
+          model_name: 'yolo11s.pt',
           confidence_threshold: '0.5',
           use_gpu: 'true'
         })

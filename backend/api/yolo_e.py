@@ -21,7 +21,7 @@ class YOLOETrainingRequest(BaseModel):
     
     project_name: str
     dataset_path: str
-    base_model: str = Field(default="yoloe-11s-seg-pf.pt")
+    base_model: str = Field(default="yolo11s.pt")
     epochs: int = Field(default=50, ge=1, le=200)
     batch_size: int = Field(default=8, ge=1, le=32)
     learning_rate: float = Field(default=0.001, ge=0.0001, le=0.1)
@@ -446,7 +446,7 @@ async def get_trained_models(project_name: Optional[str] = None) -> List[Dict[st
 @router.post("/v1/yolo-e/infer/trained")
 async def infer_with_trained_model(
     file: UploadFile = File(...),
-    model_path: str = Form(...),
+    model_path: str = Form("yolo11s.pt"),
     confidence_threshold: float = Form(0.5),
     iou_threshold: float = Form(0.45),
     use_gpu: bool = Form(True)
@@ -606,7 +606,7 @@ class InferenceRequest(BaseModel):
     model_config = {"protected_namespaces": ()}
     
     file: UploadFile
-    model_path: str = "yoloe-11l-seg.pt"
+    model_path: str = "yolo11s.pt"
     confidence_threshold: float = 0.5
     iou_threshold: float = 0.45
     use_gpu: bool = True
@@ -614,7 +614,7 @@ class InferenceRequest(BaseModel):
 @router.post("/v1/yolo-e/infer/single")
 async def infer_single_image(
     file: UploadFile = File(...),
-    model_path: str = Form("yoloe-11s-seg.pt"),
+    model_path: str = Form("yolo11s.pt"),
     confidence_threshold: float = Form(0.5),
     iou_threshold: float = Form(0.45),
     use_gpu: bool = Form(True),
@@ -739,7 +739,7 @@ async def get_base_classes() -> Dict[str, Any]:
     """
     try:
         # Load a YOLOE model to get the base classes
-        model_full_path = "/app/storage/weights/yolo_e/base/yoloe-11s-seg.pt"
+        model_full_path = "/app/storage/weights/yolo_e/base/yolo11s.pt"
         if os.path.exists(model_full_path):
             from ultralytics import YOLO
             model = YOLO(model_full_path)

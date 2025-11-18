@@ -23,18 +23,14 @@ export const InferenceControls = ({ selectedModel, onModelChange, isProcessing }
   // Available YOLO-E models (prioritizing prompt-free models for better detection)
   const models: ModelInfo[] = [
     // YOLOE prompt-free models (best for automatic detection with 4585+ classes)
-    { name: "YOLOE 11S (PF)", file: "yoloe-11s-seg-pf.pt", size: "Small", type: "segmentation", prompting: "prompt_free" },
-    { name: "YOLOE V8S (PF)", file: "yoloe-v8s-seg-pf.pt", size: "Small", type: "segmentation", prompting: "prompt_free" },
     { name: "YOLOE V8L (PF)", file: "yoloe-v8l-seg-pf.pt", size: "Large", type: "segmentation", prompting: "prompt_free" },
     // YOLOE text/visual prompt models (require proper class mapping)
-    { name: "YOLOE 11S", file: "yoloe-11s-seg.pt", size: "Small", type: "segmentation", prompting: "text_visual" },
     { name: "YOLOE 11M", file: "yoloe-11m-seg.pt", size: "Medium", type: "segmentation", prompting: "text_visual" },
     { name: "YOLOE 11L", file: "yoloe-11l-seg.pt", size: "Large", type: "segmentation", prompting: "text_visual" },
     { name: "YOLOE V8S", file: "yoloe-v8s-seg.pt", size: "Small", type: "segmentation", prompting: "text_visual" },
     { name: "YOLOE V8M", file: "yoloe-v8m-seg.pt", size: "Medium", type: "segmentation", prompting: "text_visual" },
     { name: "YOLOE V8L", file: "yoloe-v8l-seg.pt", size: "Large", type: "segmentation", prompting: "text_visual" },
     // Standard YOLO11 models (fallback for compatibility)
-    { name: "YOLO11 Nano", file: "yolo11n.pt", size: "Nano", type: "detection", prompting: "standard" },
     { name: "YOLO11 Small", file: "yolo11s.pt", size: "Small", type: "detection", prompting: "standard" },
     { name: "YOLO11 Medium", file: "yolo11m.pt", size: "Medium", type: "detection", prompting: "standard" },
     { name: "YOLO11 Large", file: "yolo11l.pt", size: "Large", type: "detection", prompting: "standard" },

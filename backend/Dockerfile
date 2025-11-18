@@ -8,6 +8,9 @@ WORKDIR /app
 
 # Install system dependencies for OpenCV and computer vision
 RUN apt-get update && apt-get install -y \
+    build-essential \
+    gcc \
+    python3-dev \
     libglib2.0-0 \
     libsm6 \
     libxext6 \

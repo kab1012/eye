@@ -171,7 +171,7 @@ class MemoryProcessingService:
             # Call YOLO-E inference endpoint with file upload
             files = {"file": ("image.jpg", io.BytesIO(image_data), "image/jpeg")}
             data = {
-                "model_path": "yoloe-11s-seg-pf.pt",
+                "model_path": "yolo11s.pt",
                 "confidence_threshold": 0.5,
                 "iou_threshold": 0.45,
                 "use_gpu": "true"
@@ -189,7 +189,7 @@ class MemoryProcessingService:
                     "detections": result.get("detections", []),
                     "objects": result.get("objects", []),
                     "confidence_scores": result.get("confidence_scores", []),
-                    "model_used": result.get("model", "yoloe-11s-seg-pf.pt")
+                    "model_used": result.get("model", "yolo11s.pt")
                 }
             else:
                 logger.warning(f"YOLO-E detection failed: {response.status_code}")

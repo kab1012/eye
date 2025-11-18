@@ -35,7 +35,7 @@ def test_multiple_images():
     print(f"Found {len(test_images)} test images")
     
     # Test with prompt-free YOLOE model (working model)
-    model_path = "yoloe-11s-seg-pf.pt"
+    model_path = "yolo11s.pt"
     
     for i, image_path in enumerate(test_images[:5]):  # Test first 5 images
         print(f"\n{i+1}. Testing: {image_path.name}")
